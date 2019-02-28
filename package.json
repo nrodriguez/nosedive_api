@@ -1,0 +1,23 @@
+{
+  "name": "nosedive_api",
+  "version": "1.0.0",
+  "description": "What will you rate?",
+  "main": "app.js",
+  "dependencies": {
+    "express": "4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nrodriguez/nosedive_api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nrodriguez/nosedive_api/issues"
+  },
+  "homepage": "https://github.com/nrodriguez/nosedive_api#readme"
+}
