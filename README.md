@@ -1,6 +1,25 @@
 # nosedive_api
 What will you rate?
 
+# Available Endpoints
+
+## V1
+* Get User: `/user/userId`
+* Get User Likes: `/user/userId/likes`
+* Edit User: `/user/userId/edit`
+
+## V2
+
+Version 2 requires a version number to be sent in the header
+
+* Get User: `/user/userId`
+* Get User Likes: `/user/userId/likes`
+* Edit User: `/user/userId/edit`
+
+Action Endpoints:
+* User Likes Another User: `/user/userId/likes/likedUserId`
+* User Match: `/user/userId/match/matchedUserId`
+* User Rating: `/user/ 
 
 # Sample Curls
 
@@ -62,8 +81,6 @@ Returns:
 ```
 
 ## Version 2
-
-Version 2 requires a version to be sent in the header
 
 ### V2 Get
 ```
