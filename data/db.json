@@ -5,8 +5,14 @@
       "name": "Jimothy Halpert",
       "occupation": "Sales Executive",
       "likes": [
-          { "id": 2, "date": "3/4/2019 12:00pm" },
-          { "id": 3, "date": "3/4/2019 2:00pm" }
+        {
+          "id": 2,
+          "date": "3/4/2019 12:00pm"
+        },
+        {
+          "id": 3,
+          "date": "3/4/2019 2:00pm"
+        }
       ]
     }
   ]

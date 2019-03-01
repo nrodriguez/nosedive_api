@@ -14,11 +14,25 @@ exports.get = (id) => {
 }
 
 exports.update = (id, payload) => {
-    console.log('p', payload)
     return db.get('users')
         .find({
             id: parseInt(id)
         })
         .assign(payload)
         .write()
+}
+
+exports.backport = (payload) => {
+    const transformedLikes = payload.likes.map((like) => {
+        return {
+            [like.id]: {
+                creationDate: like.date,
+                previouslyUnliked: false
+            }
+        }
+    })
+
+    payload.likes = transformedLikes;
+
+    return payload;
 }

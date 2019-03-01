@@ -32,9 +32,10 @@ app.post('/users/:userId/edit', function(req, res) {
         res.json(user.update(req.params.userId, req.body))
     } else {
         //Version 1 wouldn't take headers and would return the below response
-        res.json(user.update(req.params.userId, req.body))
+        const currentUser = user.update(req.params.userId, req.body)
+        res.json(user.backport(currentUser))
     }
     
 })
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Api is listening on port ${port}!`))
