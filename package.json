@@ -4,7 +4,10 @@
   "description": "What will you rate?",
   "main": "app.js",
   "dependencies": {
-    "express": "4.16.4"
+    "body-parser": "1.18.3",
+    "express": "4.16.4",
+    "hoek": "6.1.2",
+    "lowdb": "1.0.0"
   },
   "devDependencies": {},
   "scripts": {
