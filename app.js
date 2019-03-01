@@ -37,7 +37,7 @@ app.get('/users/:userId/likes/', function (req, res) {
     }
 });
 
-app.post('/users/:userId/likes/:matchUserId', function (req, res) {
+app.post('/users/:userId/likes/:likedUserId', function (req, res) {
     const version = Hoek.reach(req.headers, 'version');
 
     if (version && version >= 2) {
@@ -48,6 +48,21 @@ app.post('/users/:userId/likes/:matchUserId', function (req, res) {
         res.json({
             userId: req.params.userId,
             likes: user.get(req.params.userId).likes
+        })
+    }
+})
+
+app.post('/users/:userId/blocks/:blockedUserId', function (req, res) {
+    const version = Hoek.reach(req.headers, 'version');
+
+    if (version && version >= 2) {
+        //Version 2 is much more concise just returning the number
+        res.json(user.block(req.params.userId, req.params.blockedUserId))
+    } else {
+        //Version 1 wouldn't take headers and would return the below response
+        res.json({
+            userId: req.params.userId,
+            blocked: user.get(req.params.userId).blocked
         })
     }
 })
@@ -81,4 +96,29 @@ app.post('/users/:userId/edit', function(req, res) {
     
 })
 
-app.listen(port, () => console.log(`Api is listening on port ${port}!`))
+app.post('/users/:userId/rating', function (req, res) {
+    const version = Hoek.reach(req.headers, 'version');
+
+    if (version && version >= 2) {
+        //Version 2 is much more concise just returning the number
+        res.json(user.rating(req.params.userId, req.body))
+    } else {
+        //Version 1 wouldn't take headers and would return the below response
+        const currentUser = user.update(req.params.userId, req.body)
+        res.json(user.backport(currentUser))
+    }
+
+})
+
+const routes = app._router.stack // registered routes
+    .filter(r => r.route) // take out all the middleware
+    .map((r) => {
+        const thing = JSON.stringify({
+            action: r.route.action,
+            path: r.route.path
+        });
+
+        console.log(thing)
+    }) // get all the paths
+
+app.listen(port, () => console.log(`Api is listening on port ${port}! with routes ${routes}`))

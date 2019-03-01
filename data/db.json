@@ -16,7 +16,26 @@
           "date": "Fri, 01 Mar 2019 17:07:47 GMT"
         }
       ],
-      "recommendations": []
+      "recommendations": [],
+      "ratingsCount": {
+        "1": {
+          "count": 0
+        },
+        "2": {
+          "count": 0
+        },
+        "3": {
+          "count": 0
+        },
+        "4": {
+          "count": 0
+        },
+        "5": {
+          "count": 1
+        }
+      },
+      "rating": 5,
+      "blocked": []
     },
     {
       "id": 2,
@@ -38,7 +57,31 @@
           "date": "Fri, 01 Mar 2019 17:07:47 GMT"
         }
       ],
-      "recommendations": []
+      "recommendations": [],
+      "ratingsCount": {
+        "1": {
+          "count": 1
+        },
+        "2": {
+          "count": 0
+        },
+        "3": {
+          "count": 14
+        },
+        "4": {
+          "count": 0
+        },
+        "5": {
+          "count": 2
+        }
+      },
+      "rating": 3.1176470588235294,
+      "blocked": [
+        {
+          "id": "3",
+          "date": "Fri, 01 Mar 2019 20:52:46 GMT"
+        }
+      ]
     },
     {
       "id": 3,
@@ -46,7 +89,26 @@
       "occupation": "QA?",
       "likes": [],
       "matches": [],
-      "recommendations": []
+      "recommendations": [],
+      "ratingsCount": {
+        "1": {
+          "count": 0
+        },
+        "2": {
+          "count": 0
+        },
+        "3": {
+          "count": 0
+        },
+        "4": {
+          "count": 0
+        },
+        "5": {
+          "count": 0
+        }
+      },
+      "rating": 0,
+      "blocked": []
     }
   ]
 }

@@ -3,6 +3,7 @@ const low = require('lowdb')
 const FileSync = require('lowdb/adapters/FileSync')
 const adapter = new FileSync('./data/db.json')
 const db = low(adapter)
+const rating = require('../helpers/rating')
 
 const getUser = (id) => {
     return db.get('users')
@@ -63,6 +64,26 @@ exports.like = (id, likedUserId) => {
     return user.value();
 }
 
+exports.block = (id, blockedUserId) => {
+    const userId = parseInt(id);
+
+    const user = getUser(id);
+    const payload = {
+        id: blockedUserId,
+        date: currentDate()
+    }
+
+    //Only add in a like if it doesn't exist
+    const blockExists = user.value().blocked.findIndex(element => element.id === userId)
+
+    if (blockExists < 0) {
+        user.value().blocked.push(payload)
+        user.write()
+    }
+
+    return user.value();
+}
+
 exports.match = (userId, matchedUserId) => {
     const matchUserAId = parseInt(userId);
     const matchUserBId = parseInt(matchedUserId);
@@ -74,6 +95,25 @@ exports.match = (userId, matchedUserId) => {
     addMatch(matchUserB, matchUserAId)
 
     return matchUserA.value();
+}
+
+exports.rating = (id, givenRating) => {
+    const userId = parseInt(id);
+
+    const user = getUser(userId);
+
+    let ratings = user.value().ratingsCount
+
+    //Add another count to the current rating
+    ratings[givenRating.rating].count += 1;
+
+    user
+        .assign({
+            rating: rating.calculate(ratings)
+        })
+        .write()
+    
+    return user.value();
 }
 
 exports.backport = (payload) => {

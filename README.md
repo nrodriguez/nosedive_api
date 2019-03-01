@@ -16,10 +16,11 @@ Version 2 requires a version number to be sent in the header
 * Get User Likes: `/user/userId/likes`
 * Edit User: `/user/userId/edit`
 
-Action Endpoints:
-* User Likes Another User: `/user/userId/likes/likedUserId`
-* User Match: `/user/userId/match/matchedUserId`
-* User Rating: `/user/ 
+Extra Endpoints:
+* User Likes Another User: POST `/user/userId/likes/likedUserId`
+* User Match: POST `/user/userId/match/matchedUserId`
+* User Rating: POST `/user/userId/rating`
+* User blocks another User: POST `/user/userId/block/blockedUserId`
 
 # Sample Curls
 
