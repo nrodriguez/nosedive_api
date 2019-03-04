@@ -1,5 +1,5 @@
 # nosedive_api
-What will you rate?
+What will you rate them?
 
 # Available Endpoints
 
@@ -14,6 +14,7 @@ Version 2 requires a version number to be sent in the header
 
 * Get User: `/user/userId`
 * Get User Likes: `/user/userId/likes`
+    * Returns the list of users who have liked the given user
 * Edit User: `/user/userId/edit`
 
 Extra Endpoints:
@@ -28,7 +29,7 @@ Extra Endpoints:
     * Passes in the rating and the user who is doing the rating
 * User blocks another User: POST `/user/userId/block/blockedUserId`
     * Describes the action of a user blocking another user
-    * 
+    * The blocked user id is added to the blocker's list
 
 # Sample Curls
 
