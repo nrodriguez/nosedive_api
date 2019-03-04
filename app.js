@@ -113,12 +113,12 @@ app.post('/users/:userId/rating', function (req, res) {
 const routes = app._router.stack // registered routes
     .filter(r => r.route) // take out all the middleware
     .map((r) => {
-        const thing = JSON.stringify({
-            action: r.route.action,
+        const path = Object.keys(r.route.methods)[0].toUpperCase()
+        return JSON.stringify({
+            action: path,
             path: r.route.path
         });
-
-        console.log(thing)
     }) // get all the paths
 
-app.listen(port, () => console.log(`Api is listening on port ${port}! with routes ${routes}`))
+console.log('Routes:\n',routes)
+app.listen(port, () => console.log(`Api is listening on port ${port}`))

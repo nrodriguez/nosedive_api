@@ -69,12 +69,12 @@ exports.block = (id, blockedUserId) => {
 
     const user = getUser(id);
     const payload = {
-        id: blockedUserId,
+        id: parseInt(blockedUserId),
         date: currentDate()
     }
 
     //Only add in a like if it doesn't exist
-    const blockExists = user.value().blocked.findIndex(element => element.id === userId)
+    const blockExists = user.value().blocked.findIndex(element => element.id === parseInt(blockedUserId))
 
     if (blockExists < 0) {
         user.value().blocked.push(payload)
