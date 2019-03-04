@@ -1,5 +1,15 @@
-# nosedive_api
+# Nosedive API
 What will you rate them?
+
+A quick and dirty API to simulate interaction between users in regards to liking, matching or blocking.
+
+# Running the api
+
+```node app.js```
+
+The "database" is a json file stored in `data/db.json`. It's mocked in such a way to allow easy testing and quick setup.
+
+If you use [Insomnia](https://insomnia.rest/), there is an insomnia file allowing importing for even quicker testing.
 
 # Available Endpoints
 
